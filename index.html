@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ptBR">
+<head>
+	
+	<!-- title and meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	<meta name="description" content="Pré-Laudo." />
+    <title>Pré-Laudo Medinuclear</title>
+    
+     <!-- css -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css_button/font-awesome/font-awesome.css">
+	<link rel="stylesheet" href="css_button/base.css" />
+	<link rel="stylesheet" href="css_button/style.css" />
+    <link rel="stylesheet" href="css/estilo.css" />
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    
+    <!-- javascript -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    
+    <script type="text/javascript" src="https://raw.githubusercontent.com/all3xfx/acomplete/main/jquery.a-tools-1.4.1.js"></script>
+   
+    <script type="text/javascript" src="https://raw.githubusercontent.com/all3xfx/acomplete/main/jquery.asuggest.js"></script>
+    
+    
+ 
+</head>
+
+<body>
+	
+<div id="wrapper">
+
+<div class="info-bar">
+    <div class="container">
+        <a href="http://www.mediia.com.br" class="icon fa fa-home" data-title="Back To Tutorial"></a>
+        <a href="http://www.mediia.com.br/" class="icon fa fa-arrow-left" data-title="Pevious Demo - CSS Equal Height Columns"></a>
+        <!-- <a href="" class="icon fa fa-arrow-right" data-title="Next Demo"></a> -->
+        <a href="http://www.mediia.com.br" class="icon fa fa-download" data-title="Download Source"></a>
+        <a href="http://www.mediia.com.br" class="icon fa fa-folder-open" data-title="Tutorial Archives"></a>
+    </div>
+</div><!-- /.info-bar -->
+
+
+<header>
+    <div class="branding">
+        <div class="container clearfix">
+            <div class="logo">
+                <a href="http://www.mediia.com.br">
+                    <img src="img/core/logo.svg" alt="Bla Bla Bla Nuclear" onerror="this.src=logo.png">
+                </a>
+            </div>
+            <div class="social">
+                <a href="http://www.mediia.com.br" target="_blank" class="fb">facebook</a>
+                <a href="http://www.mediia.com.br" target="_blank" class="twitter">twitter</a>
+                <a href="http://www.mediia.com.br" target="_blank" class="googleplus">google plus</a>
+                <a href="http://www.mediia.com.br" target="_blank" class="rss">rss</a>
+                <a href="http://www.mediia.com.br" class="email">email</a>
+            </div>
+        </div>
+    </div><!-- /.branding -->
+    <div class="site-title">
+        <div class="container">
+            <h1>MEDIIA</h1>
+        </div>
+    </div><!-- /.site-title -->
+</header>
+	
+	
+	
+<!--
+	- criamos a tabela abaixo para interagir com o primeiro script javascript escrito abaixo.
+	- fonte: https://thiscouldbebetter.wordpress.com/2012/12/18/loading-editing-and-saving-a-text-file-in-html5-using-javascrip/
+	- ver em tempo real: http://thiscouldbebetter.neocities.org/texteditor.html
+	- original: cols="80" rows="25"
+	-->	
+<div id="main">
+<div class="container">
+<div class="ui-widget">
+	<label for="skills">Cintilografia Óssea</label>
+<table>
+    <!-- <tr><td>Text to Save:</td></tr> -->
+    <tr>
+        <td colspan="3">
+        	<form id="campo">
+            <textarea id="skills" cols="200" rows="50"></textarea>
+            </form>
+        </td>
+    </tr>
+    <tr>
+    <section class="border">
+            <h2>Pré-Laudo em Medicina Nuclear</h2>
+            <h3><input type="file" id="fileToLoad"></h3>
+    </section>
+    </tr>
+    <tr>
+    <section class="border">
+        	<button type="button" onclick="trocaDuaspontuacoes()">Botão Mágico ;)</button>
+        	<button type="button" onclick="saveTextAsFile()">Salvar Laudo!</button>
+        	<button type="button" onclick="loadFileAsText()">Importar Laudo!</button>
+        	
+     </section>
+    </tr>
+    <tr>
+    <section class="border">
+        	<h2>Salvar laudo como:</h2>
+        	<h2><input id="inputFileNameToSaveAs"></input></h2>
+        	<button type="button" onclick="saveTextAsFile()">Salvar Laudo!</button>
+    </section>
+    </tr>
+    <tr>
+        <td>Select a File to Load:</td>
+        <td><input type="file" id="fileToLoad"></td>
+        <td><button type="button" onclick="loadFileAsText()">Importar Laudo!</button></td>
+    </tr> -->
+</table>
+</div><!-- #ui-widget -->
+</div><!-- #container -->
+</div><!-- #main -->
+
+
+
+<!-- O codigo abaixo troca o espaço + virgula e o espaço + ponto por virgula e ponto, respectivamente (e sem espaço)!!!
+É MINHA IMPLEMENTAÇAO!!!
+ -->
+ 
+<!-- <button type="button" onclick="trocaDuaspontuacoes()">Corrige 2 Pontuaçoes</button> -->
+
+<script>
+function trocaDuaspontuacoes() {
+    var str = document.getElementById("skills").value;
+    var patternx = /\s\./ig;
+    var patterny = / ,/ig;
+    var res = str.replace(patternx, ".").replace(patterny, ",");
+    document.getElementById("skills").value = res;
+}
+</script>
+
+
+
+
+<!--
+	- esse script abaixo permite salvar o arquivo contido dentro do textarea para uma pasta no computador
+	- fonte: https://thiscouldbebetter.wordpress.com/2012/12/18/loading-editing-and-saving-a-text-file-in-html5-using-javascrip/
+	- ver em tempo real: http://thiscouldbebetter.neocities.org/texteditor.html
+	- o que eu fiz foi trocar o inputTextToSave para skills
+	-->
+<script type="text/javascript">
+ 
+function saveTextAsFile()
+{
+    var textToSave = document.getElementById("skills").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+ 
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+ 
+function loadFileAsText()
+{
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("skills").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+ 
+</script>
+
+
+
+
+<!-- Esse require inclui toda a conexao e o query
+	no database e possibilita que a funcao script abaixo funcione.
+	Eu poderia colocar todo esse codigo (do skills.php) aqui mesmo
+	mas fica muita informacao. Separando, fica mais elegante e clean.  -->
+	
+
+
+
+
+
+  <!-- Esse javascript abaixo faz o seguinte: pega todos os elementos do 
+  	array $data[] que foram puxados do mysql atraves do php query e os atribui a
+  	uma variavel javascript de nome laudos. Com isso eu converti 
+  	uma variavel php em uma variavel javascript!
+  	
+  	No arquivo original jquery.asuggest.js, alterei o 'minChunkSize': 1 para 'minChunkSize': 3
+  	para que o usuario tenha que digitar 3 letras antes da sugestao
+  	   -->
+  	   
+<script type="text/javascript">
+
+    // original
+    var laudos = ["hipercaptação", "focal", "difusa", "do radiofármaco", "em grau", "discreto", "moderado", "acentuado"]; 
+	  
+	$("#skills").asuggest(laudos);
+	
+</script>
+
+
+
+
+</body>
+</html>
